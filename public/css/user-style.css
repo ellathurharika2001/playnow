@@ -1,0 +1,924 @@
+/* ===================================
+   PlayNow Vendor Registration Styles
+   Modern Multi-Step Form Design
+   =================================== */
+
+/* ===================================
+   PROGRESS STEPS
+   =================================== */
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    right: 50px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.progress-steps .progress-bar {
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pn-primary-color) 0%, var(--pn-secondary-color) 100%);
+    transition: width 0.4s ease;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+    transition: var(--pn-transition);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    transition: var(--pn-transition);
+}
+
+.step-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    transition: var(--pn-transition);
+    white-space: nowrap;
+}
+
+/* Active Step */
+.step.active .step-number {
+    background: linear-gradient(135deg, var(--pn-primary-color) 0%, #059669 100%);
+    border-color: var(--pn-primary-color);
+    color: var(--pn-white);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+    transform: scale(1.1);
+}
+
+.step.active .step-label {
+    color: var(--pn-white);
+    font-weight: 700;
+}
+
+/* Completed Step Animation */
+.step.active .step-number::after {
+    content: '✓';
+    position: absolute;
+    font-size: 20px;
+    animation: pn-check-appear 0.3s ease forwards;
+}
+
+@keyframes pn-check-appear {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===================================
+   FORM CARD STYLES
+   =================================== */
+
+.step-card {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: pn-slide-in-up 0.5s ease;
+}
+
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pn-primary-color) 0%, var(--pn-secondary-color) 100%);
+}
+
+.step-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+@keyframes pn-slide-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-card h4 {
+    color: var(--pn-white);
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.step-card .text-white-50 {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 15px;
+}
+
+/* ===================================
+   FORM CONTROLS
+   =================================== */
+
+.form-group {
+    margin-bottom: 0;
+    position: relative;
+}
+
+.form-label {
+    color: var(--pn-white);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control,
+.form-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: var(--pn-white);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 15px;
+    transition: var(--pn-transition);
+    position: relative;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--pn-primary-color);
+    color: var(--pn-white);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-control:hover,
+.form-select:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Large Form Controls */
+.form-control-lg {
+    padding: 16px 20px;
+    font-size: 16px;
+    border-radius: 14px;
+}
+
+.form-select-lg {
+    padding: 16px 20px;
+    font-size: 16px;
+    border-radius: 14px;
+}
+
+/* Select Dropdown */
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2310B981' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px 12px;
+    padding-right: 45px;
+}
+
+.form-select option {
+    background: var(--pn-dark);
+    color: var(--pn-white);
+    padding: 10px;
+}
+
+/* Textarea */
+textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* File Input */
+input[type="file"].form-control {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+input[type="file"].form-control::file-selector-button {
+    background: linear-gradient(135deg, var(--pn-primary-color) 0%, #059669 100%);
+    color: var(--pn-white);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-right: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--pn-transition);
+}
+
+input[type="file"].form-control::file-selector-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Small Text */
+.form-text {
+    font-size: 12px;
+    margin-top: 6px;
+    display: block;
+}
+
+/* ===================================
+   RADIO BUTTONS
+   =================================== */
+
+.form-check {
+    padding-left: 0;
+    margin-right: 24px;
+}
+
+.form-check-inline {
+    display: inline-flex;
+    align-items: center;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: var(--pn-transition);
+}
+
+.form-check-input:checked {
+    background-color: var(--pn-primary-color);
+    border-color: var(--pn-primary-color);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+.form-check-input:focus {
+    border-color: var(--pn-primary-color);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+.form-check-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form-check-input:checked + .form-check-label {
+    color: var(--pn-white);
+    font-weight: 600;
+}
+
+/* ===================================
+   VALIDATION STATES
+   =================================== */
+
+.is-invalid {
+    border-color: #EF4444 !important;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.is-invalid:focus {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+}
+
+.invalid-feedback {
+    color: #FCA5A5;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 6px;
+    display: block;
+    animation: pn-shake 0.3s ease;
+}
+
+@keyframes pn-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Success State */
+.is-valid {
+    border-color: var(--pn-primary-color) !important;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.valid-feedback {
+    color: #6EE7B7;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 6px;
+    display: block;
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+
+.btn-gradient {
+    background: linear-gradient(135deg, var(--pn-primary-color) 0%, #059669 100%);
+    color: var(--pn-white);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: var(--pn-transition);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-gradient:hover::before {
+    left: 100%;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    color: var(--pn-white);
+}
+
+.btn-gradient:active {
+    transform: translateY(-1px);
+}
+
+.btn-outline-light {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: var(--pn-transition);
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: var(--pn-white);
+    transform: translateY(-3px);
+}
+
+.shop-btn {
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* Button Loading State */
+.btn-gradient:disabled,
+.btn-outline-light:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-gradient.loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--pn-white);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: pn-spin 0.6s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes pn-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===================================
+   ALERTS
+   =================================== */
+
+.alert {
+    border-radius: 16px;
+    border: none;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    animation: pn-slide-down 0.3s ease;
+}
+
+@keyframes pn-slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: #6EE7B7;
+    border-left: 4px solid var(--pn-primary-color);
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: #FCA5A5;
+    border-left: 4px solid #EF4444;
+}
+
+.alert ul {
+    padding-left: 20px;
+}
+
+.alert .btn-close {
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+}
+
+.alert .btn-close:hover {
+    opacity: 1;
+}
+
+/* ===================================
+   HEADER NAVIGATION (for consistency)
+   =================================== */
+
+.header-nav {
+    margin-top: 40px;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) {
+    .progress-steps {
+        max-width: 400px;
+        padding: 0 10px;
+    }
+    
+    .step-number {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .step-label {
+        font-size: 12px;
+    }
+    
+    .step-card {
+        padding: 32px 28px;
+    }
+    
+    .step-card h4 {
+        font-size: 24px;
+    }
+}
+
+/* Mobile (576px - 767px) */
+@media (max-width: 767px) {
+    .progress-steps {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .progress-steps::before {
+        left: 40px;
+        right: 40px;
+    }
+    
+    .progress-steps .progress-bar {
+        left: 40px;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+        border-width: 2px;
+    }
+    
+    .step-label {
+        font-size: 11px;
+        max-width: 80px;
+        word-wrap: break-word;
+    }
+    
+    .step.active .step-number {
+        transform: scale(1.05);
+    }
+    
+    .step-card {
+        padding: 28px 24px;
+        border-radius: 20px;
+    }
+    
+    .step-card h4 {
+        font-size: 22px;
+    }
+    
+    .step-card .text-white-50 {
+        font-size: 14px;
+    }
+    
+    .form-control-lg,
+    .form-select-lg {
+        padding: 14px 16px;
+        font-size: 15px;
+        border-radius: 12px;
+    }
+    
+    .btn-gradient,
+    .btn-outline-light {
+        padding: 12px 24px;
+        font-size: 15px;
+        width: 100%;
+    }
+    
+    .header-nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .d-flex.justify-content-between {
+        flex-direction: column !important;
+        gap: 12px;
+    }
+    
+    .text-end {
+        text-align: center !important;
+    }
+}
+
+/* Mobile Portrait (< 576px) */
+@media (max-width: 575px) {
+    .progress-steps {
+        margin-bottom: 40px;
+    }
+    
+    .progress-steps::before {
+        left: 35px;
+        right: 35px;
+    }
+    
+    .progress-steps .progress-bar {
+        left: 35px;
+    }
+    
+    .step-number {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+    
+    .step-label {
+        font-size: 10px;
+        max-width: 70px;
+    }
+    
+    .step-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+    
+    .step-card h4 {
+        font-size: 20px;
+    }
+    
+    .step-card .text-white-50 {
+        font-size: 13px;
+    }
+    
+    .form-control,
+    .form-select {
+        padding: 12px 14px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+    
+    .form-control-lg,
+    .form-select-lg {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+    
+    .form-label {
+        font-size: 13px;
+    }
+    
+    .form-text {
+        font-size: 11px;
+    }
+    
+    .form-check-input {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .form-check-label {
+        font-size: 14px;
+    }
+    
+    .btn-gradient,
+    .btn-outline-light {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    input[type="file"].form-control::file-selector-button {
+        padding: 6px 12px;
+        font-size: 13px;
+        margin-right: 12px;
+    }
+    
+    .alert {
+        padding: 14px 16px;
+        font-size: 13px;
+        border-radius: 12px;
+    }
+}
+
+/* Extra Small Mobile (< 375px) */
+@media (max-width: 374px) {
+    .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+    
+    .step-label {
+        font-size: 9px;
+        max-width: 60px;
+    }
+    
+    .progress-steps::before {
+        left: 30px;
+        right: 30px;
+    }
+    
+    .progress-steps .progress-bar {
+        left: 30px;
+    }
+    
+    .step-card {
+        padding: 20px 16px;
+    }
+    
+    .step-card h4 {
+        font-size: 18px;
+    }
+}
+
+/* ===================================
+   DARK THEME ADJUSTMENTS
+   =================================== */
+
+body {
+    background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
+   CUSTOM SCROLLBAR
+   =================================== */
+
+.step-card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.step-card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.step-card::-webkit-scrollbar-thumb {
+    background: var(--pn-primary-color);
+    border-radius: 10px;
+}
+
+.step-card::-webkit-scrollbar-thumb:hover {
+    background: #059669;
+}
+
+/* ===================================
+   ACCESSIBILITY ENHANCEMENTS
+   =================================== */
+
+/* Focus Visible States */
+.form-control:focus-visible,
+.form-select:focus-visible,
+.btn-gradient:focus-visible,
+.btn-outline-light:focus-visible {
+    outline: 3px solid var(--pn-primary-color);
+    outline-offset: 3px;
+}
+
+.form-check-input:focus-visible {
+    outline: 2px solid var(--pn-primary-color);
+    outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .form-control,
+    .form-select {
+        border-width: 3px;
+    }
+    
+    .step-number {
+        border-width: 4px;
+    }
+    
+    .step-card::before {
+        height: 6px;
+    }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+    .progress-steps,
+    .header-nav,
+    .btn-gradient,
+    .btn-outline-light {
+        display: none;
+    }
+    
+    .step-card {
+        background: var(--pn-white);
+        color: var(--pn-dark);
+        box-shadow: none;
+        border: 1px solid var(--pn-border-color);
+    }
+    
+    .step-card::before,
+    .step-card::after {
+        display: none;
+    }
+    
+    .form-control,
+    .form-select {
+        border: 1px solid var(--pn-border-color);
+        background: var(--pn-white);
+        color: var(--pn-dark);
+    }
+}
+
+/* ===================================
+   ADDITIONAL ANIMATIONS
+   =================================== */
+
+/* Fade in animation for form fields */
+.form-group {
+    animation: pn-fade-in-scale 0.4s ease;
+    animation-fill-mode: both;
+}
+
+@keyframes pn-fade-in-scale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Stagger animation for form groups */
+.form-step .form-group:nth-child(1) { animation-delay: 0.05s; }
+.form-step .form-group:nth-child(2) { animation-delay: 0.1s; }
+.form-step .form-group:nth-child(3) { animation-delay: 0.15s; }
+.form-step .form-group:nth-child(4) { animation-delay: 0.2s; }
+.form-step .form-group:nth-child(5) { animation-delay: 0.25s; }
+.form-step .form-group:nth-child(6) { animation-delay: 0.3s; }
+
+/* Ripple effect on buttons */
+.btn-gradient,
+.btn-outline-light {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient::after,
+.btn-outline-light::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-gradient:active::after,
+.btn-outline-light:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Glow effect on focus */
+.form-control:focus,
+.form-select:focus {
+    animation: pn-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pn-glow {
+    from {
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+    }
+    to {
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25), 0 0 20px rgba(16, 185, 129, 0.2);
+    }
+}

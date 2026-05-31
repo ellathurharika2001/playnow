@@ -1,0 +1,601 @@
+/* =====================================================
+   THEME VARIABLES
+===================================================== */
+
+/* Light Theme */
+:root {
+    /* Backgrounds */
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-muted: #f1f5f9;
+
+    /* Borders */
+    --border-color: #e2e8f0;
+
+    /* Text */
+    --text-primary: #262626;
+    --text-secondary: #525252;
+
+    /* Brand */
+    --primary: #262626;
+    --primary-hover: #525252;
+
+    /* Status */
+    --success-bg: #dcfce7;
+    --success-text: #166534;
+
+    --danger-bg: #fee2e2;
+    --danger-text: #991b1b;
+}
+
+/* Dark Theme */
+.dark {
+    --bg-page: #0f172a;
+    --bg-card: #020617;
+    --bg-muted: #020617;
+
+    --border-color: #1e293b;
+
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+
+    --primary: #e5e7eb;
+    --primary-hover: #ffffff;
+
+    --success-bg: #064e3b;
+    --success-text: #6ee7b7;
+
+    --danger-bg: #450a0a;
+    --danger-text: #fca5a5;
+}
+
+/* =====================================================
+   BASE
+===================================================== */
+
+body {
+    background: var(--bg-page);
+    color: var(--text-primary);
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+.admin-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.admin-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+/* Header */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.admin-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn-primary {
+    border-radius: 10px;
+    padding: 0.4rem 1.25rem;
+    font-weight: 600;
+    font-size: 14px;
+    background: var(--primary);
+    color: var(--bg-card);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    border-radius: 10px;
+    padding: 0.4rem 1.25rem;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: var(--bg-muted);
+}
+
+/* =====================================================
+   ALERTS
+===================================================== */
+
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+/* =====================================================
+   TABLES
+===================================================== */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table th {
+    background: var(--bg-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.table tr:nth-child(even) {
+    background: var(--bg-muted);
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(148, 163, 184, 0.08);
+}
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.badge-active {
+    background: var(--success-bg);
+    color: var(--success-text);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-inactive {
+    background: var(--danger-bg);
+    color: var(--danger-text);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* =====================================================
+   ACTION LINKS (EDIT / DELETE)
+===================================================== */
+
+.action-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.action-links a {
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.action-links a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+   PAGINATION
+===================================================== */
+
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.pagination li a,
+.pagination li span {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.pagination li a:hover {
+    background: var(--bg-muted);
+}
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+}
+
+.form-input,
+.form-select {
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* =====================================================
+   FORM SECTIONS
+===================================================== */
+
+.form-section {
+    margin-top: 2rem;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* =====================================================
+   ATTRIBUTES
+===================================================== */
+
+.attribute-group {
+    margin-bottom: 1.25rem;
+}
+
+.attribute-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.attribute-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.attribute-option {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.attribute-option input {
+    accent-color: var(--primary);
+}
+
+/* =====================================================
+   FORM ACTIONS
+===================================================== */
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+    .admin-card {
+        padding: 1rem;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .table th,
+    .table td {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
+/* =====================================================
+   VENDOR DETAIL VIEW
+===================================================== */
+
+.vendor-detail-view {
+    padding: 1rem 0;
+}
+
+.vendor-detail-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.detail-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.back-btn:hover {
+    background: var(--bg-muted);
+}
+
+/* =====================================================
+   VENDOR HEADER INFO
+===================================================== */
+
+.vendor-header-info {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.vendor-avatar-lg {
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    background: var(--primary);
+    color: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.vendor-main-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.vendor-subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.vendor-subtitle span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* =====================================================
+   MAIN DETAIL CARD
+===================================================== */
+
+.detail-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+/* =====================================================
+   SECTION HEADERS
+===================================================== */
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 2rem 0 1rem;
+}
+
+.section-header:first-child {
+    margin-top: 0;
+}
+
+.section-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--bg-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* =====================================================
+   DETAIL GRID
+===================================================== */
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.detail-item {
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-2px);
+}
+
+.detail-item.full-width {
+    grid-column: span 2;
+}
+
+.detail-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+}
+
+.detail-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    word-break: break-word;
+}
+
+.detail-value.empty {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* =====================================================
+   BADGES (STATUS)
+===================================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.bg-success {
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.bg-secondary {
+    background: var(--bg-muted);
+    color: var(--text-secondary);
+}
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.action-buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+    .vendor-header-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detail-item.full-width {
+        grid-column: span 1;
+    }
+
+    .detail-card {
+        padding: 1.25rem;
+    }
+}
