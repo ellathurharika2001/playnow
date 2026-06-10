@@ -15,6 +15,7 @@ class AdminHomeController extends Controller
     }
 public function dashboard()
 {
+    dd();
     return view('dashboard', [
         'bookingCount' => Booking::count(),
         'customerCount' => User::count(),
