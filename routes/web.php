@@ -22,10 +22,15 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HelpController;
+use App\Models\User;
 
 Route::get('/', function () {
     // Public home page for ground/turf booking
     return view('home');
+})->name('home');
+
+Route::get('/dd', function () {
+    dd(User::all());
 })->name('home');
 
 /**
@@ -83,6 +88,7 @@ Route::prefix('vendor')->group(function () {
 /**
  * Admin area – manage vendors (and later venues/bookings)
  */
+
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
 
