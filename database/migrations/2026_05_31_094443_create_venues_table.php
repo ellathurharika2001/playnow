@@ -94,7 +94,10 @@ return new class extends Migration
             $table->index('area_city');
             $table->index('is_active');
             $table->index('is_verified');
-            $table->fullText(['name', 'description', 'area_city']);
+
+            if (Schema::getConnection()->getDriverName() !== 'sqlite') {
+                $table->fullText(['name', 'description', 'area_city']);
+            }
         });
     }
 
